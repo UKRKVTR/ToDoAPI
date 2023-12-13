@@ -2,7 +2,7 @@ var express = require('express'),
   app = express(),
   port = process.env.PORT || 3000,
   mongoose = require('mongoose'),
-  Task = require('./api/models/todoListModel'), //created model loading here
+  Task = require('./api/models/todoListModel'),
   bodyParser = require("body-parser"),
   swaggerJsdoc = require("swagger-jsdoc"),
   swaggerUi = require("swagger-ui-express");
@@ -51,15 +51,13 @@ app.use(
 );
   
 
-// app.use(function(req, res) {
-//     res.status(404).send({url: req.originalUrl + ' not found'})
-//   });
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
-var routes = require('./api/routes/todoListRoutes'); //importing route
-routes(app); //register the route
+var routes = require('./api/routes/todoListRoutes');
+routes(app); 
 
 
 app.listen(port);
